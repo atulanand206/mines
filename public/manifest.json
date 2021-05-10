@@ -3,19 +3,29 @@
   "name": "Minesweeper",
   "icons": [
     {
-      "src": "logo152.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "mine.svg",
+      "sizes": "512x512 192x192 64x64 32x32 24x24 16x16",
+      "type": "image/svg+xml"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "flag.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "pause.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32"
+    },
+    {
+      "src": "play.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32"
+    },
+    {
+      "src": "leaderboard.svg",
+      "type": "image/svg+xml",
+      "sizes": "48x48"
     }
   ],
   "start_url": ".",
