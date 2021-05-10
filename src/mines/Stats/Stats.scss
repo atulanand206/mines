@@ -1,0 +1,59 @@
+.stats-container {
+    position: absolute;
+    width: fit-content;
+    right: 0;
+    margin-inline: auto;
+    display: inline;
+    height: 500px;
+    padding: 1em 0;
+    background: var(--color-darker);
+    border-radius: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-color: gray transparent;
+    scrollbar-width: thin;
+}
+
+.hidden {
+    display: none;
+}
+
+.stats-container::-webkit-scrollbar {
+    position: absolute;
+    right: 1em;
+    width: 0.4em;
+    height: 100%;
+}
+
+.stats-container::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 9em 1fr;
+    position: relative;
+    background: var(--color-dark);
+
+    & > * {
+        color: white;
+        padding-inline: 1em;
+    }
+}
+
+.game-container::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    background: var(--color-white);
+}
+
+@media screen and (min-width: 1000px) {
+    .stats-container {
+        position: absolute;
+        top: 4em;
+    }
+}
