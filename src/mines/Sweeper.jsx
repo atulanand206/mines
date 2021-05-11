@@ -79,12 +79,11 @@ class Board extends React.Component {
                 instructions: "You are the master, keep conquering."
             });
             this.pause();
-            // this.save();
+            this.save();
         }
         if (this.state.mineHit) {
-            // this.save();
+            this.save();
         }
-        this.save();
     }
 
     onResetBoard(config) {
@@ -140,6 +139,7 @@ class Board extends React.Component {
 
     save() {
         this.server.saveGame({
+            player: {username: 'atul'},
             config: this.state.config,
             times: this.state.times,
             score: calculateScore(this.state.cells),
