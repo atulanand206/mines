@@ -5,6 +5,7 @@ import './Stats.scss';
 
 interface Player {
     name: string
+    rating: number
 }
 interface Game {
     score: number
@@ -13,7 +14,7 @@ interface Game {
 }
 
 interface State {
-    games: Game[]
+    users: Player[]
     loaded: boolean
 }
 
@@ -27,14 +28,14 @@ class Stats extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            games: [],
+            users: [],
             loaded: false
         };
     }
 
     componentDidMount() {
-        fetchGames("Beginner", (res: Game[]) => {
-            this.setState({games: res, loaded: true});
+        fetchGames("Beginner", (res: Player[]) => {
+            this.setState({users: res, loaded: true});
         });
     }
 
@@ -47,12 +48,12 @@ class Stats extends React.Component<Props, State> {
                     <p>Name</p>
                     <p>Rating</p>
                 </div>
-                {this.state.games.map((game, i) => {
+                {this.state.users.map((user, i) => {
                     return (
                         <div key={i} className='game-container'>
                             <p>{i+1}</p>
-                            <p>{game.player.name}</p>
-                            <p>{game.score}</p>
+                            <p>{user.name}</p>
+                            <p>{user.rating}</p>
                         </div>
                     );
                 })}

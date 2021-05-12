@@ -79,11 +79,12 @@ class Board extends React.Component {
                 instructions: "You are the master, keep conquering."
             });
             this.pause();
-            this.save();
+            // this.save();
         }
         if (this.state.mineHit) {
-            this.save();
+            // this.save();
         }
+        this.save();
     }
 
     onResetBoard(config) {
