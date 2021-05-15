@@ -18,7 +18,6 @@ class Cell extends React.Component {
     }
 
     handleClick(e) {
-        console.log(e.target);
         e.preventDefault();
         if (this.isDisabled()) {
             return;
@@ -27,7 +26,6 @@ class Cell extends React.Component {
     }
 
     onOptionSelected(e) {
-        console.log(e.target.selectedIndex);
         e.preventDefault();
         switch(e.target.selectedIndex){
             case 1: this.act(0); break;

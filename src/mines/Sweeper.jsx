@@ -9,6 +9,7 @@ import {
     getTime
 } from './Calculation/TimeRange';
 import {
+    showNumberCells,
     emptyCells,
     minedCells,
     revealCell,
@@ -48,23 +49,23 @@ class Board extends React.Component {
         });
     }
 
-    handleClick(e, item, i, j) {
+    handleClick(item, i, j) {
+        let mineHit = false;
         if (item.value === Base.mine) {
-            this.setState({ 
-                mineHit: true, 
-                instructions: "You played well, you just weren't lucky enough!",
-                cells: minedCells(this.state.cells, i, j) 
+            mineHit = true;
+            this.setState({
+                mineHit: true,
+                cells: minedCells(this.state.cells, i, j)
             });
-            this.pause();
         } else if (item.value === Base.empty) {
             this.setState({ cells: emptyCells(this.state.cells, i, j) });
         } else {
             this.setState({ cells: revealCell(this.state.cells, i, j) });
         }
-        this.isFinished();
+        this.isFinished(mineHit);
     }
 
-    onMineIdentify(e, item, i, j) {
+    onMineIdentify(i, j) {
         const mines = minesLeft(this.state.cells, this.state.config.mines);
         this.setState({
             cells: triggerFlag(this.state.cells, i, j),
@@ -73,16 +74,19 @@ class Board extends React.Component {
         this.isFinished();
     }
 
-    isFinished() {
-        if (!this.state.mineHit && minesHidden(this.state.cells) === 0) {
-            this.setState({ 
-                // cells: showNumberCells(this.state.cells),
-                instructions: "You are the master, keep conquering."
-            });
+    isFinished(mineHit) {
+        if (minesHidden(this.state.cells) === 0) {
+            if (!mineHit) {
+                this.setState({ 
+                    cells: showNumberCells(this.state.cells),
+                    instructions: "You are the master, keep conquering."
+                });
+            } else {
+                this.setState({
+                    instructions: "You played well, you just weren't lucky enough!"
+                })
+            }
             this.pause();
-            this.save();
-        }
-        if (this.state.mineHit) {
             this.save();
         }
     }
@@ -173,8 +177,8 @@ class Board extends React.Component {
                                     gameActive={this.state.gameActive}
                                     config={this.state.config}
                                     mineHit={this.state.mineHit} disabled={em.disabled}
-                                    onClick={(e) => this.handleClick(e, em, i, j)}
-                                    onMineIdentify={(e) => this.onMineIdentify(e, em, i, j)} />
+                                    onClick={(e) => this.handleClick(em, i, j)}
+                                    onMineIdentify={(e) => this.onMineIdentify(i, j)} />
                             })}
                             </div>
                         })}
