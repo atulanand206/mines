@@ -39,6 +39,7 @@ class Board extends React.Component {
             instructions: "Flag all the mines to win."
         }
         this.handleClick = this.handleClick.bind(this);
+        sessionStorage.setItem('token', process.env.REACT_APP_TOKEN)
     }
 
     componentDidMount() {
@@ -79,12 +80,11 @@ class Board extends React.Component {
                 instructions: "You are the master, keep conquering."
             });
             this.pause();
-            // this.save();
+            this.save();
         }
         if (this.state.mineHit) {
-            // this.save();
+            this.save();
         }
-        this.save();
     }
 
     onResetBoard(config) {

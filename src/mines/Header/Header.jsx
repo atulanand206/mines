@@ -10,12 +10,15 @@ class Header extends React.Component {
         super(props);
         this.configs = Base.configs
         this.state = {
-            isStatsVisible: false
+            isStatsVisible: false,
+            configName: "Beginner" 
         }
     }
 
-    handleClick(config) {
-        this.props.onConfigChanged(this.configs[config.target.selectedIndex]);
+    handleClick(event) {
+        const config = this.configs[event.target.selectedIndex]
+        this.props.onConfigChanged(config);
+        this.setState({configName: config.name});
     }
 
     onLeaderBoardClicked() {
@@ -39,7 +42,7 @@ class Header extends React.Component {
                     <span className='config-select-arrow'></span>
                     <img className='nav-icon' src='leaderboard.svg' alt='leaderboard' onClick={() => this.onLeaderBoardClicked()}/>
                 </div>
-                <Stats isVisible={this.state.isStatsVisible}/>
+                <Stats config={this.state.configName} isVisible={this.state.isStatsVisible}/>
             </header>
         )
     }

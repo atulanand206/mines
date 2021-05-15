@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchGames } from './../Server';
 import { DateRange } from './../Calculation/TimeRange';
 import './Stats.scss';
+import _ from 'lodash';
 
 interface Player {
     name: string
@@ -19,9 +20,11 @@ interface State {
 }
 
 interface Props {
-    config: Object
+    config: string
     isVisible: boolean
 }
+
+let scheduler: NodeJS.Timeout;
 
 class Stats extends React.Component<Props, State> {
 
@@ -34,8 +37,18 @@ class Stats extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        fetchGames("Beginner", (res: Player[]) => {
-            this.setState({users: res, loaded: true});
+        scheduler = setInterval(() => this.fetchStats(this.props.config), 10000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(scheduler);
+    }
+
+    fetchStats(config: string) {
+        fetchGames(config, (res: Player[]) => {
+            if (!res && !_.isEmpty(res)) {
+                this.setState({users: res, loaded: true});
+            }
         });
     }
 
