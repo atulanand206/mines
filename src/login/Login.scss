@@ -1,0 +1,94 @@
+
+* {
+	font-family: var(--font-family-primary);
+}
+
+.login-page {
+  margin: auto;
+  width: clamp(23ch, 50%, 40ch);
+	height: 100vh;
+	padding-block: 5em;
+  display: flex;
+  flex-direction: column;
+	transform: scale(0.9);
+	&-logo {
+		width: 100%;
+		transform: scale(0.5, 0.5) translateY(50%);
+
+		& > *, & > * > * {
+			width: 100%;
+		}
+	}
+
+  .login-form-container {
+    padding: 2em;
+    display: flex;
+
+		background-color: var(--color-darker);
+    & .form {
+      display: flex;
+      flex-direction: column;
+      
+      width: 100%;
+
+			& > * {
+				color: white;
+			}
+
+      & > input {
+        width: 100%;
+        padding: 2em;
+				background: var(--color-dark);
+				border: transparent;
+				letter-spacing: 0.2em;
+				margin-block: 1em;
+				position: relative;
+				align-self: center;
+      }
+
+			&-input-label {
+				padding-left: 2em;
+				margin-top: 1em;
+				color: var(--color-gray);
+				letter-spacing: 0.2em;
+				font-size: 0.5em;
+				text-transform: uppercase;
+				align-self: left;
+			}
+
+      & > .action-button {
+        padding-block: 1em;
+        margin-block: 1em;
+        width: 94%;
+				background: var(--color-almost-black);
+				border: transparent;
+				color: var(--color-normal);
+				letter-spacing: 0.1em;
+				font-size: 1em;
+				align-self: center;
+				cursor: pointer;
+				transform: scale(1);
+
+				&:hover {
+					color: var(--color-white);
+					transform: scale(1.06);
+				}
+      }
+
+			& > .sub-action-button {
+				cursor: pointer;
+				font-size: 0.6em;
+				letter-spacing: 0.04em;
+				color: var(--color-normal);
+	
+				&:hover {
+					color: var(--color-white);
+				}
+			}
+
+			&__hidden {
+				display: none;
+			}
+    }
+  }
+}

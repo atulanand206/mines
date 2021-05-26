@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
 import './index.css';
-import Board from "./mines/Sweeper";
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Board/>
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.render((
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>
+  ), document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

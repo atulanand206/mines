@@ -37,7 +37,8 @@ class Stats extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        scheduler = setInterval(() => this.fetchStats(this.props.config), 10000);
+        this.fetchStats(this.props.config)
+        // scheduler = setInterval(() => this.fetchStats(this.props.config), 10000);
     }
 
     componentWillUnmount() {
@@ -46,7 +47,7 @@ class Stats extends React.Component<Props, State> {
 
     fetchStats(config: string) {
         fetchGames(config, (res: Player[]) => {
-            if (!res && !_.isEmpty(res)) {
+            if (!_.isEmpty(res)) {
                 this.setState({users: res, loaded: true});
             }
         });
