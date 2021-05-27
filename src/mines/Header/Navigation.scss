@@ -1,3 +1,5 @@
+@import 'src/mixin/mixin.scss';
+
 // Header row
 header {
     cursor: default;
@@ -7,7 +9,6 @@ header {
 .logo {
     text-align: center;
     position: absolute;
-    top: 0.5em;
     font-size: 1.5em;
     &__left {
         color: var(--color-gray);
@@ -18,9 +19,12 @@ header {
     margin-inline: auto;
     width: 18em;
     position: relative;
+    display: grid;
+    place-items: center;
 }
 
 .logo-wrapper {
+    width: 100%;
     background: var(--color-dark);
     border-right: 2em solid var(--color-normal);
     border-left: 2em solid var(--color-normal);
@@ -94,6 +98,7 @@ header {
 }
 
 .nav-icon {
+    @include scaleOnHover();
     grid-row: 1/-1;
     margin: auto;
     margin-right: 0;
@@ -107,7 +112,11 @@ header {
 @media screen and (min-width: 1000px) {
     header {
         display: grid;
-        grid-template-columns: repeat(3, 1fr) minmax(600px, 1fr) repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr) minmax(300px, 1fr) repeat(6, 1fr);
+
+        & > * {
+            grid-row: 1/-1;
+        }
     }
 
     .logo-container {
@@ -115,16 +124,20 @@ header {
     }
 
     .config-select {
-        grid-column: 5/6;
+        grid-column: 7 / span 1;
         margin-inline: 0;
     }
 
     .nav-icon {
-        grid-column: 6/7;
+        grid-column: 8 / span 1;
         margin: auto;
     }
 
     .stats-container {
         grid-column: 5/8;
+    }
+
+    .sign-out-btn {
+        grid-column: 9 / span 1;
     }
 }

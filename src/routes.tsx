@@ -1,5 +1,4 @@
 import { Switch, Route } from 'react-router-dom';
-
 import Board from "./mines/Sweeper";
 import Login from "./login/Login";
 

@@ -1,0 +1,9 @@
+@mixin scaleOnHover {
+    transform: scale(1) 300ms;
+    transition: all ease-in-out 300ms;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all ease-in-out 300ms;
+    }
+}

@@ -15,6 +15,7 @@ export async function login(credentials) {
     }
     console.log(response)
     const json = response;
+    console.log(json);
     if (json.access_token !== null)
         sessionStorage.setItem('access_token', json.access_token);
     if (json.refresh_token !== null)

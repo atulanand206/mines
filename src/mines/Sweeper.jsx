@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import './Sweeper.scss';
 import Base from "./Base";
 import Cell from './Cell';
@@ -22,6 +23,7 @@ import Server from './Server';
 import Header from './Header/Header';
 import Control from './Control';
 import Footer from './Footer/Footer';
+import _ from 'lodash';
 class Board extends React.Component {
 
     constructor(props) {
@@ -40,7 +42,6 @@ class Board extends React.Component {
             instructions: "Flag all the mines to win."
         }
         this.handleClick = this.handleClick.bind(this);
-        sessionStorage.setItem('token', process.env.REACT_APP_TOKEN)
     }
 
     componentDidMount() {
@@ -154,6 +155,9 @@ class Board extends React.Component {
     }
 
     render() {
+		if (_.isEmpty(sessionStorage.getItem("access_token"))) {
+			return <Redirect to='/' />
+		}
         return (
             <div className='container'>
                 <Header className='main-header'

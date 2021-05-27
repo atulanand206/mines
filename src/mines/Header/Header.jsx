@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navigation.scss';
 import Logo from './Logo';
+import Signout from './../../signout/Signout';
 import Stats from './../Stats/Stats';
 import './../Sweeper.scss';
 import Base from '../Base';
@@ -38,9 +39,10 @@ class Header extends React.Component {
                         })}
                     </select>
                     <span className='config-select-arrow'></span>
-                    <img className='nav-icon' src='leaderboard.svg' alt='leaderboard' onClick={() => this.onLeaderBoardClicked()}/>
                 </div>
+                <img className='nav-icon' src='leaderboard.svg' alt='leaderboard' onClick={() => this.onLeaderBoardClicked()}/>
                 <Stats config={this.state.configName} isVisible={this.state.isStatsVisible}/>
+                <Signout />
             </header>
         )
     }
