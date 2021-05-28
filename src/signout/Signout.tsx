@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import './Signout.scss';
+import { authenticationSvc } from '../_services/authenticationSvc';
 
 interface State {
     signedOut: boolean;
@@ -32,6 +33,7 @@ class Signout extends React.Component<Props, State> {
 
     signOut(): void {
         this.setState({signedOut: true})
+        authenticationSvc.clear()
     }
 }
 
