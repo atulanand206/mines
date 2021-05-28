@@ -1,4 +1,4 @@
-@import 'src/mixin/mixin.scss';
+@import "src/mixin/mixin.scss";
 
 * {
   font-family: var(--font-family-primary);
@@ -59,7 +59,7 @@
       }
 
       & > .action-button {
-		@include scaleOnHover();
+        @include scaleOnHover();
         padding-block: 1em;
         margin-block: 1em;
         width: 94%;
@@ -87,16 +87,16 @@
         }
       }
 
-	  &-error-message {
-		color: white;
-		font-size: 0.8em;
-		display: block;
-		margin-top: 1em;
+      &-error-message {
+        color: white;
+        font-size: 0.8em;
+        display: block;
+        margin-top: 1em;
 
-		&__hidden {
-			display: none;
-		}
-	  }
+        &__hidden {
+          display: none;
+        }
+      }
 
       &__hidden {
         display: none;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Navigation.scss';
+import './Logo.scss';
 
 class Logo extends React.Component {
 

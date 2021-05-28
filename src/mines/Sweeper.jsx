@@ -38,6 +38,7 @@ class Board extends React.Component {
             time: '00:00:00',
             minesLeft: this.config.mines,
             gameActive: false,
+            finished: false,
             config: Base.configs[0],
             instructions: "Flag all the mines to win."
         }
@@ -89,11 +90,17 @@ class Board extends React.Component {
             }
             this.pause();
             this.save();
+            this.setState({finished: true})
         }
     }
 
     onResetBoard(config) {
         this.setState({ config: config });
+        this.resetBoard(config)
+    }
+
+    resetBoard(config) {
+        this.setState({finished: false});
         this.server.fetchBoard(config, (data) => this.setState({
             cells: data,
             minesLeft: config.mines,
@@ -171,7 +178,9 @@ class Board extends React.Component {
                     {<Control
                         play={() => this.play()}
                         pause={() => this.pause()}
-                        gameActive={this.state.gameActive} />}
+                        reset={() => this.resetBoard(this.state.config)}
+                        gameActive={this.state.gameActive} 
+                        finished={this.state.finished} />}
                     <br />
                     <h3>{this.state.instructions}</h3>
                     <div className='board'>

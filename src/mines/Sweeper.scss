@@ -1,3 +1,5 @@
+@import './../mixin/mixin.scss';
+
 $color-white: white;
 $color-gray: gray;
 $color-normal: darkslategray;
@@ -63,6 +65,7 @@ body {
 }
 
 main {
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,6 +127,7 @@ main {
 }
 
 .control-container {
+    z-index: 0;
     margin-top: 1em;
     display: flex;
     align-self: center;
@@ -131,9 +135,10 @@ main {
 }
 
 .icon-container {
+    @include scaleOnHover();
     margin: auto;
     margin-top: 3px;
-    filter: hue-rotate(90deg);
+    
     width: 32px;
     height: 32px;
     cursor: pointer;

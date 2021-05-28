@@ -1,10 +1,10 @@
-@import 'src/mixin/mixin.scss';
+@import 'src//mixin/mixin.scss';
 
 .sign-out-btn {
     @include scaleOnHover();
     cursor: pointer;
     display: grid;
-    margin: 1em;
+    margin-block: 1em;
     padding: 0.4em;
     place-items: center;
     background: var(--color-almost-black);

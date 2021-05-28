@@ -1,4 +1,5 @@
 @mixin scaleOnHover {
+    cursor: pointer;
     transform: scale(1) 300ms;
     transition: all ease-in-out 300ms;
 
