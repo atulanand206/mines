@@ -6,7 +6,6 @@ import Signout from './../../signout/Signout';
 import Stats from './../Stats/Stats';
 import './../Sweeper.scss';
 import Base from '../Base';
-import { Checkbox } from '@material-ui/core';
 import classNames from 'classnames';
 
 class Header extends React.Component {
@@ -65,7 +64,8 @@ class Header extends React.Component {
                         </div>
                         <Signout />
                     </div>
-                    <input class='nav-slider-toggle' type="checkbox" id="toggle" name="toggle" value="toggle" onChange={(e) => this.change(e, 'toggle')}/>
+                    <input className='nav-slider-toggle' type="checkbox" id="toggle" 
+                        name="toggle" value="toggle" onChange={(e) => this.change(e, 'toggle')}/>
                 </div>
             </header>
         )
