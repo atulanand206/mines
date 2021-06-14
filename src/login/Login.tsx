@@ -12,7 +12,8 @@ interface State {
 	username: string;
 	password: string;
 	rePassword: string;
-	email: string;
+	name: string;
+	errorMessage: string;
 }
 
 interface Props {
@@ -28,9 +29,10 @@ class Login extends React.Component<Props, State> {
 			formError: false,
 			loggedIn: false,
 			username: '',
+			name: '',
 			password: '',
 			rePassword: '',
-			email: ''
+			errorMessage: 'Username already exists'
 		};
 		authenticationSvc.clear();
 	}
@@ -41,7 +43,7 @@ class Login extends React.Component<Props, State> {
 			case 'username': this.setState({username: event.target.value}); break;
 			case 'password': this.setState({password: event.target.value}); break;
 			case 'rePassword': this.setState({rePassword: event.target.value}); break;
-			case 'email': this.setState({email: event.target.value}); break;
+			case 'name': this.setState({name: event.target.value}); break;
 		}
 	}
 
@@ -57,6 +59,18 @@ class Login extends React.Component<Props, State> {
 					this.setState({loggedIn: true})
 				}
 			});
+		} else {
+			authenticationSvc.createUser({username: this.state.username, password: this.state.password, name: this.state.name})
+			.then(res => {
+				console.log(res)
+				if (res.status === 200) {
+					this.setState({loginPage: true})
+				} else if(res.status === 409) {
+					this.setState({formError: true, errorMessage: 'User already exists'})
+				} else {
+					this.setState({formError: true, errorMessage: 'User not created'})
+				}
+			})
 		}
 	}
 
@@ -72,6 +86,7 @@ class Login extends React.Component<Props, State> {
 		const login = this.state.loginPage;
 		const signup = !this.state.loginPage;
 		const error = this.state.formError;
+		console.log(error)
 		return (
 			<div className='login-page'>
 				<div className='login-page-logo'>
@@ -96,12 +111,16 @@ class Login extends React.Component<Props, State> {
 						login && 'form__hidden')}>
 						<label className='form-input-label'>Username</label>
 						<input type='text' placeholder='Set username' autoComplete='username' aria-label='username' onChange={(e) => this.change(e, 'username')} />
-						<label className='form-input-label'>Email Address</label>
-						<input type='email' placeholder='Set email address' autoComplete='username' aria-label='email' onChange={(e) => this.change(e, 'email')} />
+						<label className='form-input-label'>Name</label>
+						<input type='email' placeholder='Set name' autoComplete='name' aria-label='name' onChange={(e) => this.change(e, 'name')} />
 						<label className='form-input-label'>Password</label>
 						<input type='password' placeholder='Set password' autoComplete='new-password' aria-label='password' onChange={(e) => this.change(e, 'password')} />
 						<label className='form-input-label'>Re enter password</label>
 						<input type='password' placeholder='Confirm password' autoComplete='new-password' aria-label='password' onChange={(e) => this.change(e, 'rePassword')} />
+						<p className={classNames(
+							!error && 'form-error-message__hidden', 
+							error && 'form-error-message'
+							)}>{this.state.errorMessage}</p>
 						<input type='submit' className='action-button' value='Sign Up' onClick={(e) => this.handle(e, true)} />
 						<p className={classNames('sub-action-button')} onClick={() => this.takeAction(true)} >I already have an account</p>
 					</form>

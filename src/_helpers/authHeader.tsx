@@ -14,3 +14,9 @@ export function postHeader() {
         Authorization: authorizationHeaderValue()
     };
 }
+
+export function postNoAuthHeader() {
+    return {
+        "Content-Type": "application/json"
+    };
+}
