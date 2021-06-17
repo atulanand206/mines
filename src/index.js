@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import './index.css';
+import './v1/utils/colors.scss';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render((

@@ -2,9 +2,9 @@ import Logo from "../../mines/Header/Logo";
 import "./Landing.scss";
 import 'animate.css/animate.css'
 import { Squares } from '../Squares/Squares'
+import { DarkMode } from '../DarkMode/DarkMode';
 import './Lines.scss'
 import './Bumps.scss'
-import './Light.scss'
 
 const Lines = () => {
 	return (
@@ -28,14 +28,7 @@ const Bumps = () => {
 	);
 }
 
-const Light = () => {
 
-	return (
-		<div className='light__wire'>
-
-		</div>
-	)
-}
 
 const logoutConfirmation = () => {
 alert('Do you want to logout?')
@@ -63,10 +56,10 @@ const Landing = () => {
 	return (
 		<div className="intro-container">
 			<Squares frame={frame} />
+			<DarkMode />
 			{/* <Logo/> */}
 			<div className="intro-container-background"></div>
 		  <Menu />
-			<Light />
 			{/* <Lines /> */}
 			{/* <Bumps /> */}
 			<p className='intro-hash'>#</p>

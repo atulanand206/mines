@@ -1,18 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400&display=swap");
 
+:root {
+  height: 100%;
+  --animation-time: 1.5s;
+}
+
 body {
   height: 100%;
   width: 100%;
-}
-
-:root {
-  --clr-primary: black;
-  --clr-neutral: white;
-  --clr-accent: rgb(124, 96, 128);
-  --clr-artifact: rgb(71, 42, 42);
-  --clr-wire: white;
-  height: 100%;
-  --animation-time: 1.5s;
 }
 
 * {

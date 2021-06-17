@@ -1,0 +1,15 @@
+[data-theme='light'] {
+  --clr-primary: black;
+  --clr-neutral: white;
+  --clr-accent: rgb(124, 96, 128);
+  --clr-artifact: rgb(71, 42, 42);
+  --clr-wire: white;
+}
+
+[data-theme='dark'] {
+  --clr-primary: white;
+  --clr-neutral: black;
+  --clr-accent: rgb(95, 40, 102);
+  --clr-artifact: rgb(222, 143, 143);
+  --clr-wire: black;
+}

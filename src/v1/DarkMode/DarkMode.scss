@@ -1,0 +1,28 @@
+.light__wire {
+  height: 3em;
+  width: 0.1em;
+  color: wheat;
+  background: var(--clr-wire);
+
+  &-container {
+    position: absolute;
+    right: 30%;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 500ms;
+
+    &:hover {
+      height: 4em;
+      transform: translateY(14%);
+      transition: 500ms;
+    }
+  }
+
+  &-base {
+    width: 1em;
+    height: 1em;
+    background: var(--clr-wire);
+  }
+}
