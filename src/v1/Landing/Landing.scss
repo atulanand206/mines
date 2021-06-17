@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400&display=swap");
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --clr-primary: black;
+  --clr-neutral: white;
+  --clr-accent: rgb(124, 96, 128);
+  --clr-artifact: rgb(71, 42, 42);
+  --clr-wire: white;
+  height: 100%;
+  --animation-time: 1.5s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.intro-container {
+  font-family: "Rowdies", cursive;
+  font-weight: 300;
+  background: var(--clr-primary);
+  height: 100%;
+  position: relative;
+}
+
+.intro-container-background {
+  position: absolute;
+  background: var(--clr-primary);
+  height: 100%;
+}
+
+.intro-container-foreground {
+  height: 100vh;
+  padding-block: 5em;
+  display: grid;
+  grid-template-rows: 6;
+  align-items: center;
+  flex-direction: column;
+}
+
+.intro-outro {
+  cursor: pointer;
+  color: var(--clr-accent);
+  letter-spacing: 1em;
+  transform: translateX(-20vw);
+  transition-duration: 2000ms;
+}
+
+.intro-outro:hover {
+  color: var(--clr-neutral);
+  transition-duration: 2000ms;
+}
+
+.intro-divider {
+  align-self: center;
+  width: 0em;
+  height: 5em;
+  transform: translateX(29vw);
+  background: var(--clr-accent);
+  transition-duration: 2000ms;
+  &:hover {
+    background: var(--clr-neutral);
+    transition-duration: 2000ms;
+  }
+}
+
+.intro-hash {
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  font-size: 20em;
+  font-weight: 300;
+  transform: translate(20vw, -40vh);
+  color: var(--clr-artifact);
+  transition-duration: 2000ms;
+
+  &:hover {
+    color: var(--clr-neutral);
+    transition-duration: 2000ms;
+  }
+}
+
+.intro-img-icon {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  width: 2em;
+  height: 2em;
+  color: var(--clr-artifact);
+  transition-duration: 2000ms;
+
+  &:hover {
+    color: var(--clr-neutral);
+    transition-duration: 2000ms;
+  }
+}

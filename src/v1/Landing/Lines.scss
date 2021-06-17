@@ -1,0 +1,45 @@
+.speedlines {
+  position: relative;
+}
+.speedlines > div {
+  height: 8px;
+  width: 55px;
+  background: #244356;
+  border-radius: 8px;
+  position: absolute;
+  left: 120px;
+}
+.speedlines > div.tail:after {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 20px;
+  border-radius: 8px;
+  background: #244356;
+  position: absolute;
+  left: 100%;
+  margin-left: 5px;
+}
+.speedlines > div.one {
+  top: -60px;
+  left: 53px;
+}
+.speedlines > div.two {
+  top: -21px;
+  left: 113px;
+}
+.speedlines > div.three {
+  top: -10px;
+  left: 103px;
+  width: 30px;
+}
+.speedlines > div.four {
+  top: 121px;
+  left: 203px;
+  width: 30px;
+}
+.speedlines > div.five {
+  top: 141px;
+  left: 218px;
+  width: 50px;
+}

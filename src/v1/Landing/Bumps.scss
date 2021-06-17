@@ -1,0 +1,63 @@
+.bump-container {
+  --bump-width: 300px;
+
+  position: absolute;
+  top: 0;
+
+  & > div {
+    height: 8px;
+    width: var(--bump-width);
+    position: absolute;
+    border-radius: 8px;
+  }
+
+  & > div .bump {
+    position: absolute;
+    overflow: hidden;
+    -webkit-animation: move var(--animation-time) linear infinite;
+    animation: move var(--animation-time) linear infinite;
+  }
+
+  & > div .bump:after {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 30px;
+    border: 8px solid #244356;
+    border-radius: 50%;
+    background: #f5fafc;
+    box-sizing: border-box;
+  }
+  @-webkit-keyframes move {
+    0% {
+      left: 5%;
+      transform: scale(0);
+    }
+    10% {
+      transform: scale(1);
+    }
+    90% {
+      transform: scale(1);
+    }
+    100% {
+      left: 55%;
+      transform: scale(0);
+    }
+  }
+  @keyframes move {
+    0% {
+      left: 5%;
+      transform: scale(0);
+    }
+    10% {
+      transform: scale(1);
+    }
+    90% {
+      transform: scale(1);
+    }
+    100% {
+      left: 55%;
+      transform: scale(0);
+    }
+  }
+}

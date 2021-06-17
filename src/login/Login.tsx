@@ -60,6 +60,10 @@ class Login extends React.Component<Props, State> {
 				}
 			});
 		} else {
+			if (this.state.password !== this.state.rePassword) {
+				this.setState({errorMessage: 'Password do not match'})
+				return
+			}
 			authenticationSvc.createUser({username: this.state.username, password: this.state.password, name: this.state.name})
 			.then(res => {
 				console.log(res)

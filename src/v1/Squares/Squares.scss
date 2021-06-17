@@ -1,0 +1,28 @@
+.intro-img-frame-container {
+  position: absolute;
+  top: 0;
+  columns: 30;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.intro-img-frame {
+  cursor: default;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+  width: 2em;
+  height: 2em;
+  color: var(--clr-artifact);
+  transition-duration: 30000ms;
+
+  &:hover {
+    color: var(--clr-neutral);
+    
+  box-shadow: 0 0 10px 2px var(--clr-neutral);
+    transition-duration: 100ms;
+  }
+}
