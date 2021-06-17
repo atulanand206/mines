@@ -49,6 +49,7 @@ body {
 }
 
 .intro-outro:hover {
+  transform: scale(1.05) translateX(-20vw);
   color: var(--clr-neutral);
   transition-duration: 2000ms;
 }

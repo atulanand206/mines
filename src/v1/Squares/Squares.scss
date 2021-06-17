@@ -17,12 +17,12 @@
   width: 2em;
   height: 2em;
   color: var(--clr-artifact);
-  transition-duration: 30000ms;
+  transition-duration: 1000ms;
 
   &:hover {
     color: var(--clr-neutral);
     
-  box-shadow: 0 0 10px 2px var(--clr-neutral);
+  box-shadow: 0 0 10px 1px var(--clr-squares);
     transition-duration: 100ms;
   }
 }
